@@ -152,7 +152,7 @@ const Footer = () => {
         </div>
 
         <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-slate-800 pt-6 text-sm text-gray-500 md:flex-row">
-          <p>© 2026 ShopNest. All Rights Reserved.</p>
+          <p>© 2026 ShopNest. All Rights Reserved By Manish Kumar.</p>
 
           <div className="flex gap-6">
             <a href="#" className="transition hover:text-indigo-400">
