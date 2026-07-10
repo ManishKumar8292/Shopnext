@@ -1,4 +1,4 @@
-# 🛍️ ShopNext
+# 🛍️ ShopNest
 
 ShopNext is a modern, responsive e-commerce frontend application built with **React.js** and **Tailwind CSS**. It provides a clean and user-friendly shopping experience with product browsing, category filtering, search functionality, and a responsive design optimized for all devices.
 
