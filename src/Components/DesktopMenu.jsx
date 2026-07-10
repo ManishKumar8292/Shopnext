@@ -1,6 +1,6 @@
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { Button } from "../index";
-import Logo from "../assets/logo.png";
+import Logo from "../assets/Logo.png";
 import { useContext } from "react";
 import { UserContext } from "../Context/UserContext";
 
