@@ -29,22 +29,10 @@ const About = () => {
   ];
 
   const stats = [
-    {
-      number: "10K+",
-      title: "Customers",
-    },
-    {
-      number: "500+",
-      title: "Products",
-    },
-    {
-      number: "99%",
-      title: "Satisfaction",
-    },
-    {
-      number: "24/7",
-      title: "Support",
-    },
+    [10, "K+", "Happy Customers"],
+    [500, "+", "Products"],
+    [99, "%", "Satisfaction"],
+    ["24/7", "", "Support"],
   ];
 
   return (
@@ -91,8 +79,8 @@ const About = () => {
       </div>
       <div className="py-20">
         <div className="mx-auto grid max-w-7xl gap-8 px-6 text-center sm:grid-cols-2 lg:grid-cols-4">
-          {stats?.map((item) => (
-            <Stats label={item.title} key={item.label} number={item.number} />
+          {stats?.map(([number, surFix, label]) => (
+            <Stats surFix={surFix} target={number} label={label} key={label} />
           ))}
         </div>
       </div>

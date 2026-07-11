@@ -4,6 +4,14 @@ const Counter = ({ target, surFix = "", label }) => {
   const [count, setCount] = useState(0);
 
   useEffect(() => {
+    if (typeof target === "string") {
+      const timer = setTimeout(() => {
+        setCount(target);
+        return;
+      }, 10000);
+      return () => clearTimeout(timer);
+    }
+
     if (target <= 0) {
       return;
     }

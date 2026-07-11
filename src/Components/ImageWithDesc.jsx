@@ -14,7 +14,7 @@ const ImageWithDesc = ({
   return (
     <div className="mx-auto grid max-w-7xl items-center gap-16 px-6 py-24 lg:grid-cols-2">
       <div>
-        <img src={imgSrc} alt={label} className="rounded-3xl shadow-xl" />
+        <img src={imgSrc} alt={title} className="rounded-3xl shadow-xl" />
       </div>
 
       <div>

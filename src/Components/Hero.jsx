@@ -103,7 +103,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <section className="relative h-[90vh] overflow-hidden ">
+    <section className="relative h-[70vh] lg:h-[90vh] overflow-hidden ">
       {slides.map((slide, idx) => {
         return (
           <div
@@ -120,7 +120,7 @@ const Hero = () => {
 
             <div className="absolute inset-0 flex items-center">
               <div className="mx-auto max-w-7xl">
-                <div className="max-w-2xl text-white">
+                <div className="max-w-2xl text-white px-4 lg:px-0">
                   <p className="mb-3 font-bold text-xl text-indigo-400 uppercase tracking-[4px]">
                     {slide.title}
                   </p>
