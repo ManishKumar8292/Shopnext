@@ -22,7 +22,7 @@ const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (data.username === "" || data.email === "" || data.password === "") {
+    if (data.username === "" || data.password === "") {
       toast.error("Please Enter Username & Password");
     } else {
       setUser(data);
@@ -49,17 +49,6 @@ const Login = () => {
               placeholder="Enter your Username"
               name="username"
               value={data.username}
-            />
-          </div>
-          <div>
-            <Input
-              handleOnChange={handleLogin}
-              varient="transparent"
-              text="Email"
-              type="email"
-              placeholder="Enter your Email"
-              name="email"
-              value={data.email}
             />
           </div>
 
