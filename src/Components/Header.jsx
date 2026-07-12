@@ -13,6 +13,7 @@ const Header = () => {
     <>
       <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-lg shadow-md">
         <DesktopMenu links={links} isOpen={isOpen} setIsOpen={setIsOpen} />
+
         <MobileMenu links={links} isOpen={isOpen} setIsOpen={setIsOpen} />
       </header>
     </>

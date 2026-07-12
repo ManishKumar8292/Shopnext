@@ -1,6 +1,7 @@
-import { useEffect, useState } from "react";
-import { Button, Loader } from "../index";
+import { useContext, useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
+import { Button, Loader } from "../index";
+import { CartContext } from "../Context/CartContext";
 
 const Product = () => {
   const [product, setProduct] = useState(null);
@@ -8,6 +9,8 @@ const Product = () => {
   const [selectImage, setSelectImage] = useState("");
   const { id } = useParams();
   const url = `https://dummyjson.com/products/${id}`;
+
+  const { cart, addToCart, GoToCart } = useContext(CartContext);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -19,7 +22,7 @@ const Product = () => {
       setIsLoading(false);
     };
     fetchData();
-  }, []);
+  }, [url]);
 
   if (isLoading) {
     return <Loader />;
@@ -141,7 +144,19 @@ const Product = () => {
                 >
                   Back
                 </Link>
-                <Button text="Add To Cart" varient="primary" />
+                {cart.length > 0 ? (
+                  <Button
+                    handleButton={GoToCart}
+                    text="Go To Cart"
+                    varient="primary"
+                  />
+                ) : (
+                  <Button
+                    handleButton={() => addToCart(product)}
+                    text="Add To Cart"
+                    varient="primary"
+                  />
+                )}
               </div>
             </div>
           </div>

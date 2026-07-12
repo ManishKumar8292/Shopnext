@@ -6,6 +6,10 @@ import NoDataFound from "./Pages/NoDataFound";
 import Product from "./Pages/Product";
 import OurStory from "./Pages/OurStory";
 import Login from "./Pages/Login";
+import TermsConditions from "./Pages/TermsConditions";
+import PrivacyPolicy from "./Pages/PrivacyPolicy";
+import Cart from "./Pages/Cart";
+import PaymentSuccess from "./Pages/PaymentSuccess";
 
 import Header from "./Components/Header";
 import Footer from "./Components/Footer";
@@ -28,6 +32,8 @@ import Input from "./Components/Input";
 import Form from "./Components/Form";
 import GetInTouch from "./Components/GetInTouch";
 import Counter from "./Components/Counter";
+import CartBudge from "./Components/CartBudge";
+import Payment from "./Components/Payment";
 export {
   Home,
   Products,
@@ -36,6 +42,10 @@ export {
   NoDataFound,
   Product,
   Login,
+  Cart,
+  PaymentSuccess,
+  TermsConditions,
+  PrivacyPolicy,
   Header,
   Footer,
   Loader,
@@ -58,4 +68,6 @@ export {
   Input,
   GetInTouch,
   Counter,
+  CartBudge,
+  Payment,
 };

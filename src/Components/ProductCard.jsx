@@ -1,7 +1,11 @@
 import Button from "../Components/Button";
 import { Link } from "react-router-dom";
+import { CartContext } from "../Context/CartContext";
+import { useContext } from "react";
 
 const ProductCard = ({ product, index }) => {
+  const { cart, addToCart, GoToCart } = useContext(CartContext);
+  const isInCart = cart.some((item) => item.id === product.id);
   return (
     <>
       <div
@@ -51,8 +55,19 @@ const ProductCard = ({ product, index }) => {
             >
               View
             </Link>
-
-            <Button text={"Add to Cart"} varient="primary" />
+            {isInCart ? (
+              <Button
+                handleButton={GoToCart}
+                text={"Go to Cart"}
+                varient="outline"
+              />
+            ) : (
+              <Button
+                handleButton={() => addToCart(product)}
+                text={"Add to Cart"}
+                varient="primary"
+              />
+            )}
           </div>
         </div>
       </div>

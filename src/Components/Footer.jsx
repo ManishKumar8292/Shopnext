@@ -1,12 +1,7 @@
 import { Link, NavLink } from "react-router-dom";
 import { useState } from "react";
 import { toast } from "react-toastify";
-import {
-  FaFacebookF,
-  FaInstagram,
-  FaTwitter,
-  FaLinkedinIn,
-} from "react-icons/fa";
+import { FaInstagram, FaTwitter, FaLinkedinIn, FaGit } from "react-icons/fa";
 import Logo from "../assets/Logo.png";
 
 const Footer = () => {
@@ -43,10 +38,11 @@ const Footer = () => {
 
             <div className="mt-6 flex gap-4">
               <a
-                href="#"
+                href="https://github.com/ManishKumar8292"
+                target="blank"
                 className="rounded-full bg-slate-800 p-3 transition hover:bg-indigo-600 hover:text-white"
               >
-                <FaFacebookF />
+                <FaGit />
               </a>
 
               <a
@@ -64,7 +60,8 @@ const Footer = () => {
               </a>
 
               <a
-                href="#"
+                href="https://www.linkedin.com/in/manish-kumar-bb579a192"
+                target="blank"
                 className="rounded-full bg-slate-800 p-3 transition hover:bg-blue-700 hover:text-white"
               >
                 <FaLinkedinIn />
@@ -155,13 +152,16 @@ const Footer = () => {
           <p>© 2026 ShopNest. All Rights Reserved By Manish Kumar.</p>
 
           <div className="flex gap-6">
-            <a href="#" className="transition hover:text-indigo-400">
+            <Link to="/policy" className="transition hover:text-indigo-400">
               Privacy Policy
-            </a>
+            </Link>
 
-            <a href="#" className="transition hover:text-indigo-400">
+            <Link
+              to="/terms-condition"
+              className="transition hover:text-indigo-400"
+            >
               Terms & Conditions
-            </a>
+            </Link>
           </div>
         </div>
       </div>

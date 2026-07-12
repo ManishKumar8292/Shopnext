@@ -1,5 +1,5 @@
 import { Link, NavLink, useNavigate } from "react-router-dom";
-import { Button } from "../index";
+import { Button, CartBudge } from "../index";
 import Logo from "../assets/Logo.png";
 import { useContext } from "react";
 import { UserContext } from "../Context/UserContext";
@@ -45,10 +45,11 @@ const DesktopMenu = ({ links, isOpen, setIsOpen }) => {
         ))}
       </nav>
 
-      <div className="hidden md:flex gap-2">
+      <div className="hidden md:flex gap-3 justify-center items-center">
         {user ? (
           <>
-            <div className="flex gap-x-8">
+            <div className="flex items-center gap-x-4">
+              <CartBudge />
               <div className="flex items-center gap-2 ">
                 <div className="relative">
                   <div className="w-10 h-10 rounded-full bg-indigo-600 flex items-center justify-center text-xl font-bold text-white">
@@ -82,28 +83,35 @@ const DesktopMenu = ({ links, isOpen, setIsOpen }) => {
           </>
         )}
       </div>
-      <button
-        onClick={() => setIsOpen(!isOpen)}
-        className="relative z-50 flex h-10 w-10 flex-col items-center justify-center md:hidden"
-      >
-        <span
-          className={`absolute h-0.5 w-6 bg-black transition-all duration-300 ${
-            isOpen ? "rotate-45" : "-translate-y-2"
-          }`}
-        />
+      <div className="flex justify-center items-center gap-2  md:hidden">
+        <div className="">
+          {" "}
+          <CartBudge />
+        </div>
 
-        <span
-          className={`absolute h-0.5 w-6 bg-black transition-all duration-300 ${
-            isOpen ? "opacity-0" : ""
-          }`}
-        />
+        <button
+          onClick={() => setIsOpen(!isOpen)}
+          className="relative z-50 flex h-10 w-10 flex-col items-center justify-center md:hidden"
+        >
+          <span
+            className={`absolute h-0.5 w-6 bg-black transition-all duration-300 ${
+              isOpen ? "rotate-45" : "-translate-y-2"
+            }`}
+          />
 
-        <span
-          className={`absolute h-0.5 w-6 bg-black transition-all duration-300 ${
-            isOpen ? "-rotate-45" : "translate-y-2"
-          }`}
-        />
-      </button>
+          <span
+            className={`absolute h-0.5 w-6 bg-black transition-all duration-300 ${
+              isOpen ? "opacity-0" : ""
+            }`}
+          />
+
+          <span
+            className={`absolute h-0.5 w-6 bg-black transition-all duration-300 ${
+              isOpen ? "-rotate-45" : "translate-y-2"
+            }`}
+          />
+        </button>
+      </div>
     </div>
   );
 };
