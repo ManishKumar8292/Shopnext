@@ -16,6 +16,7 @@ import {
   Cart,
   Payment,
   PaymentSuccess,
+  Signup,
 } from "./index";
 import Layout from "./Layout";
 
@@ -33,6 +34,7 @@ const App = () => {
     { path: "/cart", element: <Cart /> },
     { path: "/payment", element: <Payment /> },
     { path: "/payment-success", element: <PaymentSuccess /> },
+    { path: "/signup", element: <Signup /> },
     { path: "*", element: <NoDataFound /> },
   ];
 

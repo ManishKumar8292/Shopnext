@@ -10,6 +10,7 @@ import TermsConditions from "./Pages/TermsConditions";
 import PrivacyPolicy from "./Pages/PrivacyPolicy";
 import Cart from "./Pages/Cart";
 import PaymentSuccess from "./Pages/PaymentSuccess";
+import Signup from "./Pages/Signup";
 
 import Header from "./Components/Header";
 import Footer from "./Components/Footer";
@@ -42,6 +43,7 @@ export {
   NoDataFound,
   Product,
   Login,
+  Signup,
   Cart,
   PaymentSuccess,
   TermsConditions,

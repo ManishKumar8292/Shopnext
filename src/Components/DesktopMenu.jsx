@@ -12,6 +12,9 @@ const DesktopMenu = ({ links, isOpen, setIsOpen }) => {
   const handleLogin = () => {
     navigate("/login");
   };
+  const handleSignup = () => {
+    navigate("/signup");
+  };
 
   const handleLogout = () => {
     setUser(null);
@@ -79,7 +82,11 @@ const DesktopMenu = ({ links, isOpen, setIsOpen }) => {
               text="Log In"
               varient="primary"
             />
-            <Button text="Sign Up" varient="outline" />
+            <Button
+              handleButton={handleSignup}
+              text="Sign Up"
+              varient="outline"
+            />
           </>
         )}
       </div>
