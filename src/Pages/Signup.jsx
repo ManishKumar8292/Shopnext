@@ -17,7 +17,7 @@ const Signup = () => {
     <section className="flex min-h-screen items-center justify-center bg-gradient-to-br from-indigo-50 via-white to-purple-100 px-4 py-10">
       <div className="grid w-full max-w-6xl overflow-hidden rounded-3xl bg-white shadow-2xl lg:grid-cols-2">
         <div className="hidden flex-col justify-center bg-gradient-to-br from-indigo-600 to-purple-700 p-12 text-white lg:flex">
-          <h1 className="text-5xl font-extrabold">ShopNext</h1>
+          <h1 className="text-5xl font-extrabold">ShopNest</h1>
 
           <p className="mt-6 text-lg leading-8 text-indigo-100">
             Create your account and discover the latest products with exclusive
