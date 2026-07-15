@@ -1,36 +1,19 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { ProductCard, Loader, NoDataFound } from "../index";
+import useFetch from "../Hooks/useFetch";
 
 const Products = () => {
-  const [isLoading, setIsLoading] = useState(false);
-  const [productList, setProductList] = useState([]);
+  const { data, isLoading } = useFetch(`https://dummyjson.com/products`);
   const [search, setSearch] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("All");
-
-  const url = "https://dummyjson.com/products";
-
-  useEffect(() => {
-    const fetchData = async () => {
-      setIsLoading(true);
-      const res = await fetch(url);
-
-      if (!res.ok) {
-        console.log("Data fetching issue");
-      } else {
-        const data = await res.json();
-        setProductList(data.products);
-        setIsLoading(false);
-      }
-    };
-    fetchData();
-  }, [url]);
+  const products = data?.products || [];
 
   const category = [
     "All",
-    ...new Set(productList.map((product) => product.category)),
+    ...new Set(products.map((product) => product.category)),
   ];
 
-  const filteredProducts = productList.filter((product) => {
+  const filteredProducts = products.filter((product) => {
     const matchsearch = product.title
       .toLowerCase()
       .includes(search.toLowerCase());
@@ -40,7 +23,6 @@ const Products = () => {
 
     return matchsearch && matchCatogory;
   });
-
   if (isLoading) {
     return <Loader />;
   }

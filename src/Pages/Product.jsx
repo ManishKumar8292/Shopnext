@@ -2,32 +2,24 @@ import { useContext, useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { Button, Loader } from "../index";
 import { CartContext } from "../Context/CartContext";
+import useFetch from "../Hooks/useFetch";
 
 const Product = () => {
-  const [product, setProduct] = useState(null);
-  const [isLoading, setIsLoading] = useState(false);
   const [selectImage, setSelectImage] = useState("");
   const { id } = useParams();
-  const url = `https://dummyjson.com/products/${id}`;
+  const { data: product, isLoading } = useFetch(
+    `https://dummyjson.com/products/${id}`,
+  );
 
   const { cart, addToCart, GoToCart } = useContext(CartContext);
 
   useEffect(() => {
-    const fetchData = async () => {
-      setIsLoading(true);
-      let res = await fetch(url);
-      let data = await res.json();
-      setProduct(data);
-      setSelectImage(data.thumbnail);
-      setIsLoading(false);
-    };
-    fetchData();
-  }, [url]);
+    setSelectImage(product?.thumbnail);
+  }, [product]);
 
   if (isLoading) {
     return <Loader />;
   }
-
   return (
     product && (
       <section className="bg-slate-50 py-14">
