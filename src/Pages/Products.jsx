@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { ProductCard, Loader, NoDataFound } from "../index";
 import useFetch from "../Hooks/useFetch";
 
@@ -13,16 +13,19 @@ const Products = () => {
     ...new Set(products.map((product) => product.category)),
   ];
 
-  const filteredProducts = products.filter((product) => {
-    const matchsearch = product.title
-      .toLowerCase()
-      .includes(search.toLowerCase());
+  const filteredProducts = useMemo(() => {
+    return products.filter((product) => {
+      const matchsearch = product.title
+        .toLowerCase()
+        .includes(search.toLowerCase());
 
-    const matchCatogory =
-      selectedCategory == "All" || product.category === selectedCategory;
+      const matchCatogory =
+        selectedCategory == "All" || product.category === selectedCategory;
 
-    return matchsearch && matchCatogory;
-  });
+      return matchsearch && matchCatogory;
+    });
+  }, [products, search, selectedCategory]);
+
   if (isLoading) {
     return <Loader />;
   }

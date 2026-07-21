@@ -1,24 +1,25 @@
 import { Routes, Route } from "react-router-dom";
+import React from "react";
 import { ToastContainer } from "react-toastify";
 import { UserProvider } from "./Context/UserContext";
 import { CartProvider } from "./Context/CartContext";
-import {
-  Home,
-  Products,
-  About,
-  Contact,
-  NoDataFound,
-  Product,
-  OurStory,
-  Login,
-  TermsConditions,
-  PrivacyPolicy,
-  Cart,
-  Payment,
-  PaymentSuccess,
-  Signup,
-} from "./index";
+const Home = React.lazy(() => import("./Pages/Home.jsx"));
+const Products = React.lazy(() => import("./Pages/Products.jsx"));
+const About = React.lazy(() => import("./Pages/About.jsx"));
+const Contact = React.lazy(() => import("./Pages/Contact.jsx"));
+const NoDataFound = React.lazy(() => import("./Pages/NoDataFound.jsx"));
+const Product = React.lazy(() => import("./Pages/Product.jsx"));
+const OurStory = React.lazy(() => import("./Pages/OurStory.jsx"));
+const Login = React.lazy(() => import("./Pages/Login.jsx"));
+const TermsConditions = React.lazy(() => import("./Pages/TermsConditions.jsx"));
+const PrivacyPolicy = React.lazy(() => import("./Pages/PrivacyPolicy"));
+const Cart = React.lazy(() => import("./Pages/Cart"));
+const Payment = React.lazy(() => import("./Components/Payment"));
+const PaymentSuccess = React.lazy(() => import("./Pages/PaymentSuccess"));
+const Signup = React.lazy(() => import("./Pages/Signup"));
 import Layout from "./Layout";
+import { Suspense } from "react";
+import Loader from "./Components/Loader.jsx";
 
 const App = () => {
   const links = [
@@ -43,15 +44,17 @@ const App = () => {
       <ToastContainer />
       <UserProvider>
         <CartProvider>
-          <Routes>
-            <Route element={<Layout />}>
-              {links?.map((link, idx) => {
-                return (
-                  <Route key={idx} path={link.path} element={link.element} />
-                );
-              })}
-            </Route>
-          </Routes>
+          <Suspense fallback={<Loader />}>
+            <Routes>
+              <Route element={<Layout />}>
+                {links?.map((link, idx) => {
+                  return (
+                    <Route key={idx} path={link.path} element={link.element} />
+                  );
+                })}
+              </Route>
+            </Routes>
+          </Suspense>
         </CartProvider>
       </UserProvider>
     </>

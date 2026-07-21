@@ -78,7 +78,7 @@ const Product = () => {
 
               <div className="mt-6 flex items-center gap-4">
                 <h2 className="text-5xl font-bold text-indigo-600">
-                  ${product.price}
+                  ₹{product.price}
                 </h2>
 
                 <span className="rounded-full bg-red-100 px-3 py-1 text-red-600">

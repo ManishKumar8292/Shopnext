@@ -1,7 +1,7 @@
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { Button, CartBudge } from "../index";
 import Logo from "../assets/Logo.png";
-import { useContext } from "react";
+import { useCallback, useContext } from "react";
 import { UserContext } from "../Context/UserContext";
 
 const DesktopMenu = ({ links, isOpen, setIsOpen }) => {
@@ -9,16 +9,19 @@ const DesktopMenu = ({ links, isOpen, setIsOpen }) => {
   const { user, setUser } = userData;
 
   let navigate = useNavigate();
-  const handleLogin = () => {
-    navigate("/login");
-  };
-  const handleSignup = () => {
-    navigate("/signup");
-  };
 
-  const handleLogout = () => {
+  const handleLogin = useCallback(() => {
+    navigate("/login");
+  }, [navigate]);
+
+  const handleSignup = useCallback(() => {
+    navigate("/signup");
+  }, [navigate]);
+
+  const handleLogout = useCallback(() => {
     setUser(null);
-  };
+  }, [setUser]);
+
   return (
     <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
       <Link

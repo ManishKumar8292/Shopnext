@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Testimonial, Card, Features, Offer, Stats } from "../index";
 import Hero from "../Components/Hero";
+
 // import HeroSlider from "../Components/HeroSlider";
 
 const Home = () => {

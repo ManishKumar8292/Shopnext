@@ -5,12 +5,12 @@ import { useNavigate } from "react-router-dom";
 
 const Cart = () => {
   const navigate = useNavigate();
+
   const { cart, removeCart, totalPrice } = useContext(CartContext);
 
   return (
     <section className="min-h-screen bg-gradient-to-br from-slate-50 via-indigo-50 to-white py-12">
       <div className="mx-auto max-w-7xl px-4">
-        {/* Heading */}
         <div className="mb-10 flex flex-col items-center">
           <h1 className="text-4xl font-extrabold text-slate-800 md:text-5xl">
             🛒 Shopping Cart
@@ -41,7 +41,6 @@ const Cart = () => {
           </div>
         ) : (
           <div className="grid gap-10 lg:grid-cols-3">
-            {/* Products */}
             <div className="space-y-6 lg:col-span-2">
               {cart.map((item) => (
                 <div
@@ -57,7 +56,6 @@ const Cart = () => {
                     />
                   </div>
 
-                  {/* Details */}
                   <div className="flex flex-1 flex-col justify-between">
                     <div>
                       <span className="rounded-full bg-indigo-100 px-3 py-1 text-xs font-semibold text-indigo-600">
@@ -85,7 +83,6 @@ const Cart = () => {
               ))}
             </div>
 
-            {/* Order Summary */}
             <div className="sticky top-24 h-fit rounded-3xl bg-white p-8 shadow-xl">
               <h2 className="text-3xl font-bold text-slate-800">
                 Order Summary
@@ -106,13 +103,13 @@ const Cart = () => {
                 <div className="flex justify-between">
                   <span className="text-slate-500">Discount</span>
 
-                  <span className="font-semibold text-red-500">₹0</span>
+                  <span className="font-semibold text-red-500">₹ 0</span>
                 </div>
 
                 <hr />
 
                 <div className="flex justify-between text-3xl font-bold">
-                  <span>Total</span>
+                  <span>Total :</span>
 
                   <span className="text-indigo-600">
                     ₹ {totalPrice.toFixed(2)}
